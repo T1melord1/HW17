@@ -8,6 +8,9 @@ public class Wine {
     private LocalDate bottlingDate;
     private String description;
 
+    public Wine() {
+    }
+
     public Wine(String title, String brandName, String country, LocalDate bottlingDate, String description) {
         this.title = title;
         this.brandName = brandName;
