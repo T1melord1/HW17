@@ -58,7 +58,8 @@ public class Wine {
     public void setDescription(String description) {
         this.description = description;
     }
-    public Period wineExtract(LocalDate currentDate){
-    return Period.between(bottlingDate, currentDate);
+    public void wineExtract(LocalDate currentDate){
+
+        System.out.println("Выдержка лет между разливом и указанной датой: " + Period.between(bottlingDate,currentDate).getYears() + " года");
     }
 }
