@@ -9,6 +9,10 @@ public class Main {
         Period period = wine.wineExtract(LocalDate.now());
         System.out.println("Выдержка вина: " + period.getYears() + " лет " + period.getMonths() + " месяцев " + period.getDays() + " дней");
 
+        Wine shato = new Wine("Ogurec", "Amado","Belarus",LocalDate.of(2010,5,13), "kruto");
+        shato.setDescription("Ploho");
+        Period period1 = shato.wineExtract(LocalDate.of(2000,1,1));
+        System.out.println(period1);
 
 
 
