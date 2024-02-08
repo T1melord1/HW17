@@ -59,7 +59,12 @@ public class Wine {
         this.description = description;
     }
     public void wineExtract(LocalDate currentDate){
+        if (Period.between(currentDate,bottlingDate).getYears() < 5){
+            System.out.println("Выдержка лет между разливом и указанной датой: " + Period.between(currentDate,bottlingDate).getYears() + " год");
+        }else if (Period.between(currentDate,bottlingDate).getYears() >= 5){
+            System.out.println("Выдержка лет между разливом и указанной датой: " + Period.between(currentDate,bottlingDate).getYears() + " лет");
+        }
 
-        System.out.println("Выдержка лет между разливом и указанной датой: " + Period.between(bottlingDate,currentDate).getYears() + " года");
     }
+
 }
