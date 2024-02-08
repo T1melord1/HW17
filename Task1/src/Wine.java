@@ -1,4 +1,5 @@
 import java.time.LocalDate;
+import java.time.Period;
 
 public class Wine {
     private String title;
@@ -53,5 +54,8 @@ public class Wine {
 
     public void setDescription(String description) {
         this.description = description;
+    }
+    public Period wineExtract(LocalDate currentDate){
+    return Period.between(bottlingDate, currentDate);
     }
 }
