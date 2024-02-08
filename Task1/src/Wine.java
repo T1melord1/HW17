@@ -2,6 +2,7 @@ import java.time.LocalDate;
 import java.time.Period;
 
 public class Wine {
+
     private String title;
     private String brandName;
     private String country;
@@ -58,11 +59,19 @@ public class Wine {
     public void setDescription(String description) {
         this.description = description;
     }
-    public void wineExtract(LocalDate currentDate){
-        if (Period.between(currentDate,bottlingDate).getYears() < 5){
-            System.out.println("Выдержка лет между разливом и указанной датой: " + Period.between(currentDate,bottlingDate).getYears() + " год");
-        }else if (Period.between(currentDate,bottlingDate).getYears() >= 5){
-            System.out.println("Выдержка лет между разливом и указанной датой: " + Period.between(currentDate,bottlingDate).getYears() + " лет");
+
+    public void wineExtract(LocalDate currentDate) {
+        final int ABC = Period.between(currentDate, bottlingDate).getYears();
+        int lastDigit = (Period.between(currentDate, bottlingDate).getYears()) % 10;
+        int lastTwoDigits = (Period.between(currentDate, bottlingDate).getYears()) % 100;
+        if (lastTwoDigits >= 11 && lastTwoDigits <= 14) {
+            System.out.println("Выдержка лет между разливом и указанной датой: " + ABC + " лет");
+        } else if (lastDigit == 1) {
+            System.out.println("Выдержка лет между разливом и указанной датой: " + ABC + " год");
+        } else if (lastDigit >= 2 && lastDigit <= 4) {
+            System.out.println("Выдержка лет между разливом и указанной датой: " + ABC + " года");
+        } else {
+            System.out.println("Выдержка лет между разливом и указанной датой: " + ABC + " лет");
         }
 
     }
